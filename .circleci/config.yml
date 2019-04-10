@@ -1,5 +1,5 @@
 jobs:
-  deploy:
+  build:
     machine:
       image: 'circleci/classic:edge'
     steps:
