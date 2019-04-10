@@ -5,10 +5,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Heroku
+          name: Build and push
           command: |
             docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
-            docker build --rm=false -t registry.heroku.com/$APP_NAME/release .
-            docker push registry.heroku.com/$APP_NAME/release:latest
+            docker build --rm=false -t registry.heroku.com/$APP_NAME/web .
+            docker push registry.heroku.com/$APP_NAME/web:latest
+      - run:
+          name: Release
+          command: |
+            WEB_DOCKER_IMAGE_ID="$(docker inspect registry.heroku.com/$APP_NAME/web:latest --format={{.Id}})"
+            ./deploy.sh
 
 
