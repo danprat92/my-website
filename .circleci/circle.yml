@@ -1,14 +1,17 @@
-machine:
-  services:
-    - docker
+jobs:
+  build:
+    machine:
+      services:
+        - docker
+    dependencies:
+      cache_directories:
+        - ~/docker
+    deployment:
+      production:
+        branch: develop
+        commands:
+          - docker login --email=$HEROKU_LOGIN --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
+          - docker build --rm=false -t registry.heroku.com/$APP_NAME/web .
+          - docker push registry.heroku.com/$APP_NAME/web:latest
 
-dependencies:
-  cache_directories:
-    - ~/docker
 
-deployment:
-  production:
-    commands:
-      - docker login --email=$HEROKU_LOGIN --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
-      - docker build --rm=false -t registry.heroku.com/$APP_NAME/web .
-      - docker push registry.heroku.com/$APP_NAME/web:latest
