@@ -11,7 +11,17 @@ jobs:
             docker build --rm=false -t registry.heroku.com/$APP_NAME/web .
             docker push registry.heroku.com/$APP_NAME/web:latest
             WEB_DOCKER_IMAGE_ID="$(docker inspect registry.heroku.com/$APP_NAME/web:latest --format={{.Id}})"
-            APP_NAME=$APP_NAME
-            ./deploy.sh
+            curl -n -X PATCH https://api.heroku.com/apps/$APP_NAME/formation \
+              -d '{
+              "updates": [
+                {
+                  "type": "web",
+                  "docker_image": "$WEB_DOCKER_IMAGE_ID"
+                }
+              ]
+            }' \
+              -H "Content-Type: application/json" \
+              -H "Accept: application/vnd.heroku+json; version=3.docker-releases"
+
 
 
