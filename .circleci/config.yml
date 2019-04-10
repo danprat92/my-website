@@ -1,6 +1,8 @@
 jobs:
   build:
-    branch: master
+    branches:
+      only:
+        - master
     machine:
       image: 'circleci/classic:edge'
     steps:
