@@ -1,5 +1,6 @@
 jobs:
   build:
+    branch: master
     machine:
       image: 'circleci/classic:edge'
     steps:
@@ -10,7 +11,6 @@ jobs:
           command: |
             heroku container:login
             heroku container:push web --app $APP_NAME
-            heroku help container
             heroku container:release web --app $APP_NAME
 
 
