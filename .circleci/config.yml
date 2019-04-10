@@ -14,6 +14,7 @@ jobs:
           name: Release
           command: |
             WEB_DOCKER_IMAGE_ID="$(docker inspect registry.heroku.com/$APP_NAME/web:latest --format={{.Id}})"
+            APP_NAME=$APP_NAME
             ./deploy.sh
 
 
