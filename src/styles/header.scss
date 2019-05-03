@@ -11,7 +11,7 @@
   align-items: center;
   padding: 0 2.5rem;
   @media screen and (max-width: 500px) {
-    padding: 0 5px;
+    padding: 0 10px;
   }
   border-top: 2px solid $green;
 }
@@ -20,6 +20,9 @@
   height: 60px;
   width: 60px;
   border-radius: 100%;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 }
 
 .name-title {
@@ -39,6 +42,9 @@
   h4 > a:hover {
     color: $green;
   }
+  @media screen and (max-width: 500px) {
+    padding: 0;
+  }
 }
 
 .menu a {
@@ -48,6 +54,9 @@
 .menu a.mail {
   color: $grey-light;
   text-decoration: none;
+  @media screen and (max-width: 850px) {
+    display: none;
+  }
 }
 
 .menu a:hover {
@@ -63,4 +72,84 @@
   flex: 4;
   flex-direction: row;
   justify-content: space-evenly;
+  @media screen and (max-width: 650px) {
+    display: none;
+  }
+}
+
+.menu-mobile {
+  display: none;
+  flex: 1;
+  justify-content: flex-end;
+  @media screen and (max-width: 650px) {
+    display: flex;
+  }
+}
+
+.menu-icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+.overlay-mobile {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  display: none;
+  /* Fallback for web browsers that don't support RGBa */
+  background-color: rgb(255, 255, 255);
+  /* RGBa with 0.6 opacity */
+  background-color: rgba(255, 255, 255, 0.95);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* For IE 5.5 - 7*/
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#FFFFFF);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#FFFFFF)";
+  @media screen and (min-width: 650px) {
+    display: none !important;
+  }
+}
+
+.overlay-mobile.active {
+  display: flex;
+}
+
+.overlay-mobile a {
+  color: $grey-dark;
+  text-decoration: none;
+  margin: 15px 0;
+}
+.overlay-mobile a.mail {
+  color: $grey-light;
+  text-decoration: none;
+}
+
+.overlay-mobile a:hover {
+  color: $green;
+}
+
+.overlay-mobile a.active {
+  color: $green;
+}
+
+.overlay-mobile div {
+  position: absolute;
+  top: 17px;
+  right: 5px;
+  height: 30px;
+}
+
+.close-icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+.menu-icon:hover,
+.close-icon:hover {
+  opacity: 0.7;
 }

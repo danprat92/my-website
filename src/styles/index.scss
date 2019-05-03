@@ -1,0 +1,26 @@
+@import "colors";
+
+.content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hightlight {
+  color: $green;
+}
+
+h2,
+h3,
+p {
+  color: $grey-dark;
+}
+
+h3 a {
+  color: $green;
+}
+
+p a {
+  color: $green;
+}

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Daniel Prato`,
+    title: `Daniel Prato | Full-Stack Web & Mobile Dev`,
     description: `Website to showcase my abilities`,
     author: `Daniel Prato <daniel.pratog@gmail.com>`,
   },
@@ -43,6 +43,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }

@@ -32,13 +32,28 @@ const Footer = () => (
     `}
     render={data => (
       <footer>
-        <a href="http://google.com" alt="linkedin">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com/in/daniel-prato-13a120a6/"
+          alt="linkedin"
+        >
           <Img className="social" fluid={data.linkedin.childImageSharp.fluid} />
         </a>
-        <a href="http://google.com" alt="linkedin">
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://bit.ly/2WqOik0"
+          alt="resume"
+        >
           <Img className="social" fluid={data.resume.childImageSharp.fluid} />
         </a>
-        <a href="http://google.com" alt="linkedin">
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://www.instagram.com/danprat92/?hl=en"
+          alt="instagram"
+        >
           <Img
             className="social"
             fluid={data.instagram.childImageSharp.fluid}
