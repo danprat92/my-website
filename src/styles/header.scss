@@ -1,0 +1,66 @@
+@import "colors";
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 96px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 2.5rem;
+  @media screen and (max-width: 500px) {
+    padding: 0 5px;
+  }
+  border-top: 2px solid $green;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+}
+
+.name-title {
+  padding: 0 20px;
+  h4,
+  h5 {
+    margin: 10px 0;
+    font-weight: normal;
+  }
+  h5 {
+    color: $grey-light;
+  }
+  h4 > a {
+    text-decoration: none;
+    color: $grey-dark;
+  }
+  h4 > a:hover {
+    color: $green;
+  }
+}
+
+.menu a {
+  color: $grey-dark;
+  text-decoration: none;
+}
+.menu a.mail {
+  color: $grey-light;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: $green;
+}
+
+.menu a.active {
+  color: $green;
+}
+
+.menu {
+  display: flex;
+  flex: 4;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

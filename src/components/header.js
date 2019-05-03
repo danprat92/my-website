@@ -1,34 +1,62 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
+import AnimatedDownLink from "../components/animated-down-link"
+import AnimatedUpLink from "../components/animated-up-link"
+import "../styles/header.scss"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+const Header = ({ location }) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        placeholderImage: file(relativePath: { eq: "me.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      return (
+        <header className="header">
+          <Img
+            className="logo"
+            fluid={data.placeholderImage.childImageSharp.fluid}
+          />
+          <div className="name-title">
+            <h4>
+              <AnimatedDownLink to="/" text="Daniel Prato" />
+            </h4>
+            <h5>Full-Stack Web & Mobile Dev</h5>
+          </div>
+          <div className="spacer" />
+          <div className="menu">
+            <AnimatedUpLink
+              current={location.pathname}
+              to="/about"
+              text="Skills"
+            />
+            <AnimatedUpLink
+              current={location.pathname}
+              to="/companies-timeline"
+              text="Companies"
+            />
+            <AnimatedUpLink
+              current={location.pathname}
+              to="/projects"
+              text="Projects"
+            />
+            <a className="mail" href="mailto:daniel.pratog@gmail.com">
+              daniel.pratog@gmail.com
+            </a>
+          </div>
+        </header>
+      )
     }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+  />
 )
 
 Header.propTypes = {

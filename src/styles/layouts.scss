@@ -1,0 +1,24 @@
+@import "main";
+@import "colors";
+
+.wrapper {
+  height: 100vh;
+  padding-top: 96px;
+}
+
+main,
+.tl-edges,
+.tl-wrapper {
+  height: 100%;
+  background: white;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+main {
+  padding: 0 2.5rem;
+  @media screen and (max-width: 500px) {
+    padding: 0 5px;
+  }
+}
